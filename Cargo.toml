@@ -1,5 +1,5 @@
 [package]
-name = "rcalc"
+name = "rclc"
 version = "0.8.3"
 authors = ["Vladimir Markelov <vmatroskin@gmail.com>"]
 edition = "2018"
@@ -20,9 +20,9 @@ section = "utility"
 depends = "$auto"
 priority = "optional"
 assets = [
-	["target/release/rcalc", "usr/bin/", "755"],
-	["LICENSE", "usr/share/doc/rcalc/", "644"],
-	["doc.md", "usr/share/doc/ttdl/README", "644"],
+	["target/release/rclc", "usr/bin/", "755"],
+	["LICENSE", "usr/share/doc/rclc/", "644"],
+	["doc.md", "usr/share/doc/rclc/README", "644"],
 ]
 extended-description = """\
 A powerful terminal calculator that transparently works \
