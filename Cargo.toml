@@ -7,7 +7,7 @@ categories = ["command-line-utilities"]
 repository = "https://github.com/VladimirMarkelov/rclc"
 readme = "README.md"
 license = "MIT"
-description = ""
+description = "Mathematical expression calculator supporting common fraction, complex numbers, and long integers"
 keywords = ["calculator", "terminal", "cli", "math"]
 
 [dependencies]
