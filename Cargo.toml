@@ -1,0 +1,35 @@
+[package]
+name = "rcalc"
+version = "0.8.3"
+authors = ["Vladimir Markelov <vmatroskin@gmail.com>"]
+edition = "2018"
+categories = ["command-line-utilities"]
+repository = "https://github.com/VladimirMarkelov/rclc"
+readme = "README.md"
+license = "MIT"
+description = ""
+keywords = ["calculator", "terminal", "cli", "math"]
+
+[dependencies]
+getopts = "0.2"
+atty = "0.2"
+rcalc_lib = "0.9"
+
+[package.metadata.deb]
+section = "utility"
+depends = "$auto"
+priority = "optional"
+assets = [
+	["target/release/rcalc", "usr/bin/", "755"],
+	["LICENSE", "usr/share/doc/rcalc/", "644"],
+	["doc.md", "usr/share/doc/ttdl/README", "644"],
+]
+extended-description = """\
+A powerful terminal calculator that transparently works \
+float number, big integer numbers, complex numbers, and \
+common fractions. Basic variable and script support \
+allows anyone to create a library of own constants and \
+preload them on the calculator startup.\
+"""
+changelog = "changelog"
+
