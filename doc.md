@@ -36,15 +36,15 @@ Please visit [homepage](https://github.com/VladimirMarkelov/rclc) to share your 
 ## Command Line Usage
 
 ```
-$ rcalc [expression] [options]
+$ rclc [expression] [options]
 ```
 
-If the application is launched without arguments, it starts in interactive mode. When either expression or `--file` option is provided, the calculator evaluates it, prints the result or error, and exits. The calculator can read the expressions from pipe(e.g, `cat exprs.txt | rcalc` or like `bc`: `echo "12/35" | rcalc`.
+If the application is launched without arguments, it starts in interactive mode. When either expression or `--file` option is provided, the calculator evaluates it, prints the result or error, and exits. The calculator can read the expressions from pipe(e.g, `cat exprs.txt | rclc` or like `bc`: `echo "12/35" | rclc`.
 
 * `-v`, `--version` - prints the application version and exits 
 * `--debug` - prints detailed information. E.g, if you provide a startup file to execute, without option the calculator prints only errors. While with the option enabled it prints all evaluated lines and their results
-* `-i`, `--interactive` - forces interactive mode. By default, if either expression or file is provided, the calculator closes after calculating the final result. Option `-i` switches the calculator into interactive mode after loading a file or evaluating the provided expression. Note: if rcalc detects that its output or input is piped (e.g, `echo "2*3" | rcalc -i`), the option `-i` does nothing
-* `-f`, `--file` - loads and evaluates the file with expression at startup. It may be useful to preload your own set of constants or variables to use in the further calculations. When `--file` is defined, the calculator evaluates the file line by line, skipping comments, and prints out only the result of the last evaluated line. The option supports multiple values: `rcalc -f script1 -f script2`, in this case scripts are evaluated in the order of appearance in command line.
+* `-i`, `--interactive` - forces interactive mode. By default, if either expression or file is provided, the calculator closes after calculating the final result. Option `-i` switches the calculator into interactive mode after loading a file or evaluating the provided expression. Note: if rclc detects that its output or input is piped (e.g, `echo "2*3" | rclc -i`), the option `-i` does nothing
+* `-f`, `--file` - loads and evaluates the file with expression at startup. It may be useful to preload your own set of constants or variables to use in the further calculations. When `--file` is defined, the calculator evaluates the file line by line, skipping comments, and prints out only the result of the last evaluated line. The option supports multiple values: `rclc -f script1 -f script2`, in this case scripts are evaluated in the order of appearance in command line.
 
 ## Interactive Mode
 
@@ -194,7 +194,7 @@ For the alternative case:
 If you want to convert without entering interactive mode:
 
 ```
-$ rcalc "f=13" --file=f2d
+$ rclc "f=13" --file=f2d
 -10\5\9
 $
 ```

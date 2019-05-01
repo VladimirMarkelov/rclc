@@ -1,16 +1,16 @@
-rcalc (0.8.3) unstable; urgency=medium
+rclc (0.8.3) unstable; urgency=medium
 
   * New functions: fib(N-th Fibonacci number), cbrt(cubic root)
 
  -- Vladimir Markelov <vmatroskin@gmail.com>  Sat, 27 Apr 2019 20:19:29 -0700
 
-rcalc (0.8.2) unstable; urgency=medium
+rclc (0.8.2) unstable; urgency=medium
 
   * New functions: radians to degrees(deg), degrees to radians(rad)
 
  -- Vladimir Markelov <vmatroskin@gmail.com>  Tue, 23 Apr 2019 19:43:15 -0700
 
-rcalc (0.8.1) unstable; urgency=medium
+rclc (0.8.1) unstable; urgency=medium
 
   * Fix automatic insertion of brackets and multiplication sign
 
@@ -23,7 +23,7 @@ rcalc (0.8.1) unstable; urgency=medium
 
  -- Vladimir Markelov <vmatroskin@gmail.com>  Sun, 21 Apr 2019 18:02:59 -0700
 
-rcalc (0.8.0) unstable; urgency=medium
+rclc (0.8.0) unstable; urgency=medium
 
   * First stable version
 

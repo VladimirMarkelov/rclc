@@ -1,6 +1,6 @@
 ## RionaCalc
 
-Mathematical expression calculator with big integers, floats, common fractions, and complex numbers support. It can be launched in two modes: immediate, when rcalc gets an expression, calculates it, prints the result, and exits; and interactive, when rcalc displays a prompt and calculates every expression you type.
+Mathematical expression calculator with big integers, floats, common fractions, and complex numbers support. It can be launched in two modes: immediate, when rclc gets an expression, calculates it, prints the result, and exits; and interactive, when rclc displays a prompt and calculates every expression you type.
 
 Suggestions, ideas, pull requests are very welcome. Thank you!
 
@@ -55,18 +55,18 @@ Please, read the detailed [documentation here](docs.md).
 The application can be compiled from source, or installed using cargo:
 
 ```shell
-$ cargo install rcalc
+$ cargo install rclc
 ```
 
-You need Rust compiler that supports Rust 2018 edition (Rust 1.31 or newer) to do it. If you want to upgrade existing rcalc, execute the following command:
+You need Rust compiler that supports Rust 2018 edition (Rust 1.31 or newer) to do it. If you want to upgrade existing rclc, execute the following command:
 
 ```shell
-$ cargo install rcalc --force
+$ cargo install rclc --force
 ```
 
 ### Pre-compiled binaries
 
-For Windows you can download pre-compiled binaries from [Release page](https://github.com/VladimirMarkelov/rcalc/releases).
+For Windows you can download pre-compiled binaries from [Release page](https://github.com/VladimirMarkelov/rclc/releases).
 
 * Windows binary works on Windows 7 or newer Windows.
 
@@ -75,4 +75,4 @@ For Windows you can download pre-compiled binaries from [Release page](https://g
 - The calculator is not thoroughly tested, bugs may happen. Please, notify me about any issue
 - While the calculator supports bitwise operations, it always displays a result as integer number. There is no way yet to display the result in hex or binary
 - Float numbers with arbitrary precision are not supported yet - all floats are 64-bit float numbers. I am aware of rust-port of GNU GMP, but I do not want to use it at this moment - I remember having troubles trying to build the library on Windows
-- The list of supported functions and constants is not long at this moment. I am going to add more later. If you need any function which rcalc does not have yet, please suggest it
+- The list of supported functions and constants is not long at this moment. I am going to add more later. If you need any function which rclc does not have yet, please suggest it
