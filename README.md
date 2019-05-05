@@ -73,6 +73,4 @@ For Windows you can download pre-compiled binaries from [Release page](https://g
 ### Known issues
 
 - The calculator is not thoroughly tested, bugs may happen. Please, notify me about any issue
-- While the calculator supports bitwise operations, it always displays a result as integer number. There is no way yet to display the result in hex or binary
 - Float numbers with arbitrary precision are not supported yet - all floats are 64-bit float numbers. I am aware of rust-port of GNU GMP, but I do not want to use it at this moment - I remember having troubles trying to build the library on Windows
-- The list of supported functions and constants is not long at this moment. I am going to add more later. If you need any function which rclc does not have yet, please suggest it

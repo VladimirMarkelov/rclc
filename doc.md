@@ -27,7 +27,7 @@ Please visit [homepage](https://github.com/VladimirMarkelov/rclc) to share your 
 * Trigonometric functions work with radians and degrees. Bare numbers are treated as radians, degrees requires one or three suffixes. Two degrees formats: `20d30m50s` or `20°30'50"`. Minutes and seconds can be omitted, in this case degrees can be float number like `30.25d`. So, `sin(pi/2)` == `sin(90°)`
 * Every number can include group separator `_` for readability - it is very useful when using big integers. `3_000.90_23` == `3000.9023`
 * Both `.` and `,` are treated as decimal separators
-* Function argument separator is `;`. If a function receives more arguments than it requires, the trailing arguments are dropped: e.g, `sqrt(11;12;13)` is the same as `sqrt(11)` 
+* Function argument separator is `;`. If a function receives more arguments than it requires, the trailing arguments are dropped: e.g, `sqrt(11;12;13)` is the same as `sqrt(11)`
 * Regular fractions use `\` to separate its parts. They can be written with integer part or only with numerator and denominator, e.g `1\1\10` == `11\10`
 * Two complex numbers formats: with marker at the end or in the middle. E.g, `1+2i` == `1+i2`. In addition, `j` can be used instead of `i` - but the calculator outputs always with `i`
 * Hexadecimal(starts with `0x`), octal(starts with `0o`), and binary(starts with `0b`) numbers
@@ -41,7 +41,7 @@ $ rclc [expression] [options]
 
 If the application is launched without arguments, it starts in interactive mode. When either expression or `--file` option is provided, the calculator evaluates it, prints the result or error, and exits. The calculator can read the expressions from pipe(e.g, `cat exprs.txt | rclc` or like `bc`: `echo "12/35" | rclc`.
 
-* `-v`, `--version` - prints the application version and exits 
+* `-v`, `--version` - prints the application version and exits
 * `--debug` - prints detailed information. E.g, if you provide a startup file to execute, without option the calculator prints only errors. While with the option enabled it prints all evaluated lines and their results
 * `-i`, `--interactive` - forces interactive mode. By default, if either expression or file is provided, the calculator closes after calculating the final result. Option `-i` switches the calculator into interactive mode after loading a file or evaluating the provided expression. Note: if rclc detects that its output or input is piped (e.g, `echo "2*3" | rclc -i`), the option `-i` does nothing
 * `-f`, `--file` - loads and evaluates the file with expression at startup. It may be useful to preload your own set of constants or variables to use in the further calculations. When `--file` is defined, the calculator evaluates the file line by line, skipping comments, and prints out only the result of the last evaluated line. The option supports multiple values: `rclc -f script1 -f script2`, in this case scripts are evaluated in the order of appearance in command line.
@@ -145,9 +145,11 @@ Function names are case insensitive.
 * Inverse hyperbolic: `asinh`, `acosh`, `atanh`
 * Function for complex numbers: `norm`(modulus), `conj`(conjugate), `re`(real part of a complex), `im`(imaginary part of a complex)
 * Immediate if: `iif(condition;true_value;false_value)` returns `true_value` if the `condition` is true, and `false_value` otherwise
-* Least common multiple and greatest common divisor: `lcm` and `gcd`. Both function accept arbitrary number of argumets (starting from 2 arguments)
+* Least common multiple and greatest common divisor: `lcm` and `gcd`. Both function accept arbitrary number of arguments (starting from 2 arguments)
 * Conversion between radians and degrees: `rad`(degrees to radians) and `deg`(degrees to radians)
 * N-th number of Fibonacci: `fibo`. At this moment the argument must be an integer number between 0 and 100000
+* Prime numbers: `is_prime` - returns `1` if a number is a prime one, `next_prime` returns the smallest prime number greater than the function argument. Note: the functions return error for non-integer numbers, and the algorithm is not very fast, so checking if a number is prime may take a lot of time if the number is rather big
+* Formatting integers: `hex`, `oct`, and `bin` display integer numbers in hexadecimal, octal, or binary representation. Note: the functions affects output only if they are the last used functions, e.g. `1+hex(10)` displays `11`, but `hex(1+10)` displays `0xb`
 
 ### Builtin Constants
 

@@ -45,6 +45,9 @@ fn calc_expr(expr: &str, state: &mut parse::CalcState) -> Result<String, String>
     let (expr, var) = detect_variable(expr);
     match parse::eval(&expr, state) {
         Ok(v) => {
+            if state.has_alt {
+                return Ok(state.alt_result.clone());
+            }
             let res = format!("{}", v);
             if let Some(vname) = var {
                 match state.variable_name_validate(&vname) {
@@ -175,9 +178,7 @@ fn main() {
                     if n == 0 {
                         break;
                     }
-                    let s = input.trim_matches(|c: char| {
-                        c == '"' || c == '\'' || c == '\n' || c == '\r' || c == ' '
-                    });
+                    let s = input.trim_matches(|c: char| c == '"' || c == '\'' || c == '\n' || c == '\r' || c == ' ');
                     if s.starts_with('#') || s.starts_with("//") {
                         continue;
                     }
