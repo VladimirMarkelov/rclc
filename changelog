@@ -6,6 +6,8 @@ rclc (0.8.5) unstable; urgency=medium
   * functions min and max to return minimum and maximum value from the list of
     arbitrary length
 
+  * functions avg to calculate average of a list of values
+
   * functions is_prime and next_prime: work only with integers and use naive
     algorithm that makes them slow for big numbers
 
@@ -30,10 +32,10 @@ rclc (0.8.1) unstable; urgency=medium
   * Fix automatic insertion of brackets and multiplication sign
 
   * New function `iif` - immediate if: the function receives three arguments,
-    if the first is zero, the third argumetn is returned, and the second
+    if the first is zero, the third argument is returned, and the second
     otherwise
 
-  * New functions `gcd` - greatest commom divisor, and `lcm` - least common
+  * New functions `gcd` - greatest common divisor, and `lcm` - least common
     multiple
 
  -- Vladimir Markelov <vmatroskin@gmail.com>  Sun, 21 Apr 2019 18:02:59 -0700
