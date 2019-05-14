@@ -13,6 +13,7 @@ Please visit [homepage](https://github.com/VladimirMarkelov/rclc) to share your 
 * [Operators](#opertors)
     * [Operator priority](#opertor-priority)
 * [Functions](#functions)
+* [Special Functions](#special-functions)
 * [Builtin Constants](#builtin-constants)
 * [Special Variables](#special-variables)
 * [Scripts](#scripts)
@@ -150,6 +151,10 @@ Function names are case insensitive.
 * N-th number of Fibonacci: `fibo`. At this moment the argument must be an integer number between 0 and 100000
 * Prime numbers: `is_prime` - returns `1` if a number is a prime one, `next_prime` returns the smallest prime number greater than the function argument. Note: the functions return error for non-integer numbers, and the algorithm is not very fast, so checking if a number is prime may take a lot of time if the number is rather big
 * Formatting integers: `hex`, `oct`, and `bin` display integer numbers in hexadecimal, octal, or binary representation. Note: the functions affects output only if they are the last used functions, e.g. `1+hex(10)` displays `11`, but `hex(1+10)` displays `0xb`
+
+### Special functions
+
+* Gamma function - extension of factorial function. The calculated value is not accurate, the difference between result and exact value is less than 0.000000001%
 
 ### Builtin Constants
 
