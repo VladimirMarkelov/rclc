@@ -1,3 +1,12 @@
+rclc (0.8.7) unstable; urgency=medium
+
+  * Sqrt for positive common fraction returns common fraction if possible
+
+  * New function: solve(aliases: 'zeros' and 'roots') calculates roots of
+    linear or quadratic eqaution. The result is the first root.
+
+ -- Vladimir Markelov <vmatroskin@gmail.com>  Tue, 21 May 2019 19:46:29 -0700
+
 rclc (0.8.6) unstable; urgency=medium
 
   * Fix raising negative float number into non-integer power degree
