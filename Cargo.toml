@@ -7,7 +7,7 @@ categories = ["command-line-utilities"]
 repository = "https://github.com/VladimirMarkelov/rclc"
 readme = "README.md"
 license = "MIT"
-description = "Mathematical expression calculator supporting common fraction, complex numbers, and long integers"
+description = "Mathematical expression calculator supporting common fractions, complex numbers, and big integers"
 keywords = ["calculator", "terminal", "cli", "math"]
 
 [dependencies]
@@ -26,7 +26,7 @@ assets = [
 ]
 extended-description = """\
 A powerful terminal calculator that transparently works \
-float number, big integer numbers, complex numbers, and \
+float numbers, big integer numbers, complex numbers, and \
 common fractions. Basic variable and script support \
 allows anyone to create a library of own constants and \
 preload them on the calculator startup.\
