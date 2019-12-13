@@ -48,7 +48,7 @@ Very simple examples(`ans` - an special variable that holds the result of the la
 * Basic variable and scripting support allows users to create their own constant libraries and preload them at calculator startup
 * Commands in interactive mode(a very limited set at this moment): `quit` or `exit` close the calculator, and `load <filename>` - load the file and evaluate lines one by one, skipping comments, the last evaluated result is printed
 
-Please, read the detailed [documentation here](docs.md).
+Please, read the detailed [documentation here](doc.md).
 
 ## Installation
 
