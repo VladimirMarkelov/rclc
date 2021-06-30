@@ -99,11 +99,7 @@ fn load_file(pb: &Path, cstate: &mut parse::CalcState, conf: &config::Conf) -> S
     };
 
     const BOM: [u8; 3] = [0xef, 0xbb, 0xbf];
-    let bom = if let Ok(s) = String::from_utf8(BOM.to_vec()) {
-        s
-    } else {
-        "".to_string()
-    };
+    let bom = if let Ok(s) = String::from_utf8(BOM.to_vec()) { s } else { "".to_string() };
 
     let file = BufReader::new(&f);
     let mut err: String = "".to_string();

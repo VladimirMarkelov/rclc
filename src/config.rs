@@ -15,13 +15,7 @@ pub struct Conf {
 
 impl Default for Conf {
     fn default() -> Conf {
-        Conf {
-            src_file: Vec::new(),
-            expression: "".to_string(),
-            interactive: false,
-            stdin_piped: false,
-            debug: false,
-        }
+        Conf { src_file: Vec::new(), expression: "".to_string(), interactive: false, stdin_piped: false, debug: false }
     }
 }
 
@@ -42,12 +36,7 @@ pub fn parse_args(args: &[String]) -> Conf {
     opts.optflag("v", "version", "Print application version");
     opts.optflag("i", "interactive", "Force interactive mode");
     opts.optflag("", "debug", "Show extra information while calculating");
-    opts.optmulti(
-        "f",
-        "file",
-        "Path to file with expressions to calculate one by one",
-        "SRC FILE PATH",
-    );
+    opts.optmulti("f", "file", "Path to file with expressions to calculate one by one", "SRC FILE PATH");
 
     let program = args[0].clone();
     let mut conf = Conf::new();
