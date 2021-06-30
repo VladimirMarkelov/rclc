@@ -3,7 +3,7 @@ use std::fs::File;
 use std::io::BufRead;
 use std::io::BufReader;
 use std::io::{stdin, stdout, Write};
-use std::path::PathBuf;
+use std::path::{Path, PathBuf};
 
 use rcalc_lib::parse;
 
@@ -21,7 +21,7 @@ fn read_expr(prompt: &str) -> String {
 // Variable name must start with 'a'..'z' and contain only '_', '0'..'9', 'a'..'z'
 fn detect_variable(expr: &str) -> (String, Option<String>) {
     let expr = expr.trim().to_lowercase();
-    if let Some(p) = expr.find(|c: char| c >= 'a' && c <= 'z') {
+    if let Some(p) = expr.find(|c: char| ('a'..='z').contains(&c)) {
         if p != 0 {
             return (expr, None);
         }
@@ -32,7 +32,7 @@ fn detect_variable(expr: &str) -> (String, Option<String>) {
     if let Some(p) = expr.find('=') {
         let v = expr[..p].trim();
         let e = expr[p + 1..].trim();
-        let p = v.find(|c: char| c != '_' && !(c >= '0' && c <= '9') && !(c >= 'a' && c <= 'z'));
+        let p = v.find(|c: char| c != '_' && !('0'..='9').contains(&c) && !('a'..='z').contains(&c));
         if p.is_none() {
             return (e.to_string(), Some(v.to_string()));
         }
@@ -52,7 +52,7 @@ fn calc_expr(expr: &str, state: &mut parse::CalcState) -> Result<String, String>
             if let Some(vname) = var {
                 match state.variable_name_validate(&vname) {
                     Err(s) => return Err(s.to_string()),
-                    Ok(..) => state.add_variable(&vname, v.clone()),
+                    Ok(..) => state.add_variable(&vname, v),
                 }
             }
             Ok(res)
@@ -92,7 +92,7 @@ fn run_interactive_loop(cstate: &mut parse::CalcState, conf: &config::Conf) {
     }
 }
 
-fn load_file(pb: &PathBuf, cstate: &mut parse::CalcState, conf: &config::Conf) -> String {
+fn load_file(pb: &Path, cstate: &mut parse::CalcState, conf: &config::Conf) -> String {
     let f = match File::open(pb) {
         Ok(fl) => fl,
         Err(e) => return format!("error opening file: {}", e),
