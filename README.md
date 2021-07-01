@@ -49,7 +49,7 @@ Very simple examples(`ans` - an special variable that holds the result of the la
 * Commands in interactive mode(a very limited set at this moment): `quit` or `exit` close the calculator, and `load <filename>` - load the file and evaluate lines one by one, skipping comments, the last evaluated result is printed
 * Character `%` can be either a modulo or a percentage operator. It depends on the character position: if `%` is right before the expression end or before closing bracket or before another operator *and* previous operator is one of `+`, `-`, `*`, or `/`, the character is considered a percentage operator
 
-Please, read the detailed [documentation here](docs.md).
+Please, read the detailed [documentation here](doc.md).
 
 ## Installation
 
