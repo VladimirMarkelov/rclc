@@ -47,6 +47,7 @@ Very simple examples(`ans` - an special variable that holds the result of the la
 * Hexadecimal(starts with `0x`), octal(starts with `0o`), and binary(starts with `0b`) numbers
 * Basic variable and scripting support allows users to create their own constant libraries and preload them at calculator startup
 * Commands in interactive mode(a very limited set at this moment): `quit` or `exit` close the calculator, and `load <filename>` - load the file and evaluate lines one by one, skipping comments, the last evaluated result is printed
+* Character `%` can be either a modulo or a percentage operator. It depends on the character position: if `%` is right before the expression end or before closing bracket or before another operator *and* previous operator is one of `+`, `-`, `*`, or `/`, the character is considered a percentage operator
 
 Please, read the detailed [documentation here](docs.md).
 

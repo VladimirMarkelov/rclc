@@ -10,8 +10,9 @@ Please visit [homepage](https://github.com/VladimirMarkelov/rclc) to share your 
 * [Command Line Usage](#command-line-usage)
     * [Commands](#commands)
 * [Type of Values](#type-of-values)
-* [Operators](#opertors)
-    * [Operator priority](#opertor-priority)
+* [Operators](#operators)
+    * [Operator priority](#operator-priority)
+    * [Percentage operator](#percentage-operator)
 * [Functions](#functions)
 * [Special Functions](#special-functions)
 * [Builtin Constants](#builtin-constants)
@@ -101,7 +102,7 @@ Supported mathematical operators:
 * `-` - subtract or change value's sign
 * `*` - multiply
 * `/` - divide
-* `%` - division remainder
+* `%` - division remainder and percentage
 * `//` - integer division (drops fractional part of the result after division and converts the result into big integer)
 * `!` - factorial if added after a value or after a closing bracket, logical negation in other cases
 * `**` - raise to arbitrary  power
@@ -117,15 +118,44 @@ Starting from the highest priority:
 
 1. `!`(factorial)
 2. `!`(logical NOT), `~`, `-`(unary minus), `+`(unary plus)
-3. `**`
-4. `<<`, `>>`
-5. `*`, `/`, `//`, `%`
-6. `+`, `-`
-7. `&`, `^`
-8. `|`
-9. `&&`
-10. `||`
-11. comparison operators (`==`, `>`, etc)
+3. `%`(percentage operator)
+4. `**`
+5. `<<`, `>>`
+6. `*`, `/`, `//`, `%`(modulo operator)
+7. `+`, `-`
+8. `&`, `^`
+9. `|`
+10. `&&`
+11. `||`
+12. comparison operators (`==`, `>`, etc)
+
+#### Percentage operator
+
+The percentage operator `%` is a unique one: it never works alone and its result depends on the previous operator on the same nesting level.
+The calculator treats `%` as percentage operator only if:
+
+- a previous operator exists and it is one of `+`, `-`, `*`, and `/`
+- character `%` is the final character or it is followed by either a closing bracket or another operator
+
+In all other cases, `%` is treated as a modulo operator.
+
+Combinations of `%` with other operators:
+
+1. `a + b %` - increase the number `a` by `b` percents
+2. `a - b %` - decrease the number `a` by `b` percents
+3. `a * b %` - calculate `b` percent of `a` (short for `a * b / 100`)
+4. `a / b %` - calculate how many percents is `a` of `b` (short for `a / b * 100`)
+
+Note: in the first three cases `b` is always converted to a real number. In the last case, the result is always a real number.
+
+Examples:
+
+- `10 + 30 + 50 %` = `55`. Because percentage operator has higher priority, the expression is calculated as `10 + (30 + 50 %)`
+- `sqrt(-16) / sqrt(-4) %` = `200.0`. It demonstrates that you even can calculate percentage of complex numbers. That is useless most of the time. In this case `sqrt(-16)` is twice bigger than `sqrt(-4)` and it results in `200 %` or `200.0`
+- `10+3i / 3-2i %` = `184.6153846153846`. It is an example of useless result due to complex numbers are incomparable. First, two complex numbers are divided, and then the result is converted to a real number.
+- `10 + 30 + 0+5i %` = `40`. Percentage is a complex number, so it is converted to a real number before use(the real part of the complex number is used). The expression turns into `10 + 30 + 0 %`
+- `10 + 30 ** 50 %` = `ERROR: too many operators`. The previous operator is `**`, so `%` is treated as the modulo operator and it requires an extra argument.
+- `(10 + 30) %` = `ERROR: too many operators`. The previous operator does not exist(nesting level of `+` is deeper. That is why it is skipped), so `%` is treated as the modulo operator.
 
 ### Functions
 

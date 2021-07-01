@@ -1,9 +1,16 @@
+rclc (0.8.9) unstable; urgency=medium
+
+  * Character '%' depending on its position can be either modulo or percentage
+    operator
+
+ -- Vladimir Markelov <vmatroskin@gmail.com>  Tue, 29 Jun 2021 20:46:10 -0700
+
 rclc (0.8.7) unstable; urgency=medium
 
   * Sqrt for positive common fraction returns common fraction if possible
 
   * New function: solve(aliases: 'zeros' and 'roots') calculates roots of
-    linear or quadratic eqaution. The result is the first root.
+    linear or quadratic equation. The result is the first root.
 
  -- Vladimir Markelov <vmatroskin@gmail.com>  Tue, 21 May 2019 19:46:29 -0700
 
