@@ -66,9 +66,8 @@ pub fn parse_args(args: &[String]) -> Conf {
         exit(0);
     }
 
-    if !matches.free.is_empty() {
-        let s = &matches.free[0];
-        conf.expression = s.to_string();
+    for expr in &matches.free {
+        conf.expression += &expr;
     }
 
     conf.interactive = (conf.expression.is_empty() && conf.src_file.is_empty()) || matches.opt_present("interactive");
