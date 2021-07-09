@@ -6,7 +6,12 @@ rclc (0.8.9) unstable; urgency=medium
   * Now calculator takes all free arguments from command line as a single
     expression. Before it calculated only the first argument.
 
- -- Vladimir Markelov <vmatroskin@gmail.com>  Fri, 02 Jul 2021 10:04:19 -0700
+  * Fix accuracy when calculating percentage
+
+  * smart detection of an expression starting with '-' sign to tell an
+    expression from an option
+
+ -- Vladimir Markelov <vmatroskin@gmail.com>  Thu, 08 Jul 2021 17:32:54 -0700
 
 rclc (0.8.7) unstable; urgency=medium
 

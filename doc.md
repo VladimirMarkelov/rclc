@@ -118,16 +118,15 @@ Starting from the highest priority:
 
 1. `!`(factorial)
 2. `!`(logical NOT), `~`, `-`(unary minus), `+`(unary plus)
-3. `%`(percentage operator)
-4. `**`
-5. `<<`, `>>`
-6. `*`, `/`, `//`, `%`(modulo operator)
-7. `+`, `-`
-8. `&`, `^`
-9. `|`
-10. `&&`
-11. `||`
-12. comparison operators (`==`, `>`, etc)
+3. `**`
+4. `<<`, `>>`
+5. `*`, `/`, `//`, `%`(modulo operator)
+6. `+`, `-`, `%`(percentage operator)
+7. `&`, `^`
+8. `|`
+9. `&&`
+10. `||`
+11. comparison operators (`==`, `>`, etc)
 
 #### Percentage operator
 
@@ -150,7 +149,7 @@ Note: in the first three cases `b` is always converted to a real number. In the 
 
 Examples:
 
-- `10 + 30 + 50 %` = `55`. Because percentage operator has higher priority, the expression is calculated as `10 + (30 + 50 %)`
+- `10 + 30 + 50 %` = `60`. Because percentage operator is the same priority as `+`, the expression is calculated as `(10 + 30) + 50 %`
 - `sqrt(-16) / sqrt(-4) %` = `200.0`. It demonstrates that you even can calculate percentage of complex numbers. That is useless most of the time. In this case `sqrt(-16)` is twice bigger than `sqrt(-4)` and it results in `200 %` or `200.0`
 - `10+3i / 3-2i %` = `184.6153846153846`. It is an example of useless result due to complex numbers are incomparable. First, two complex numbers are divided, and then the result is converted to a real number.
 - `10 + 30 + 0+5i %` = `40`. Percentage is a complex number, so it is converted to a real number before use(the real part of the complex number is used). The expression turns into `10 + 30 + 0 %`

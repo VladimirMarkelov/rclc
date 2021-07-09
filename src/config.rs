@@ -30,6 +30,25 @@ fn print_usage(program: &str, opts: &Options) {
     print!("{}", opts.usage(&brief));
 }
 
+fn preprocess_args(args: &[String]) -> Vec<String> {
+    let opt_list = ["-h", "-v", "-i"];
+    let mut res: Vec<String> = Vec::new();
+    'outer: for arg in args {
+        if !arg.starts_with('-') || arg.starts_with("-f") || arg.starts_with("--") {
+            res.push(arg.to_string());
+            continue;
+        }
+        for opt in opt_list {
+            if opt == arg {
+                res.push(arg.to_string());
+                continue 'outer;
+            }
+        }
+        res.push(" ".to_string() + arg);
+    }
+    res
+}
+
 pub fn parse_args(args: &[String]) -> Conf {
     let mut opts = Options::new();
     opts.optflag("h", "help", "Show this help");
@@ -38,6 +57,7 @@ pub fn parse_args(args: &[String]) -> Conf {
     opts.optflag("", "debug", "Show extra information while calculating");
     opts.optmulti("f", "file", "Path to file with expressions to calculate one by one", "SRC FILE PATH");
 
+    let args = preprocess_args(args);
     let program = args[0].clone();
     let mut conf = Conf::new();
     let matches: Matches = match opts.parse(&args[1..]) {
