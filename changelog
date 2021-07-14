@@ -1,4 +1,4 @@
-rclc (0.8.9) unstable; urgency=medium
+rclc (1.0.0) unstable; urgency=medium
 
   * Character '%' depending on its position can be either modulo or percentage
     operator
@@ -10,6 +10,8 @@ rclc (0.8.9) unstable; urgency=medium
 
   * smart detection of an expression starting with '-' sign to tell an
     expression from an option
+
+  * Both '^' and '**' raise to a power. For bitwise XOR use '@'
 
  -- Vladimir Markelov <vmatroskin@gmail.com>  Thu, 08 Jul 2021 17:32:54 -0700
 

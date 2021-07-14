@@ -82,13 +82,13 @@ All numbers supports using `_` as a group separator to improve readability: `102
   - trailing marker: `1-2i`
   - marker in the middle: `1-i2`
 * Angles: internally they are 64-bit float numbers. Separators: `°` or `d` - for degrees, `'` or `m` - for minutes, `"` or `s` - for seconds:
-  - Full format with degrees, minutes, and seconds: `30°45'24"` or `30d45m24s` - in this format degrees and minutes must be integer numbers. Note: separators can be mixed - for convenience: `°` can be har to type fast, so `30d45'24"` is the same as `30°45'24"` etc
+  - Full format with degrees, minutes, and seconds: `30°45'24"` or `30d45m24s` - in this format degrees and minutes must be integer numbers. Note: separators can be mixed - for convenience: `°` can be hard to type fast, so `30d45'24"` is the same as `30°45'24"` etc
   - Degrees only: `30.75°` or `30.75d` - in this format degrees can be either integer or float point number.
 * Variable: a word starts with a Latin letter from `a` to `z` and contains only Latin letters, digits, and underscore. Variable names are case-insensitive.
 
 ## Expressions
 
-For convenience there are a few shortcuts when typing an expression:
+For convenience, there are a few shortcuts when typing an expression:
 
 * sometimes multiplication sign can be omitted if it is clear that it must be at that place: between values and brackets(`2(3+4)` -> `2 * (3+4)`), between brackets(`(1+2)(3+4)` -> `(1+2) * (3+4)`), between value and function names(`20sin(2)` -> `20 * sin(2)`)
 * if a function wants one argument and it is a single value, brackets can be omitted: `sin cos 2` -> `sin(cos(2))`
@@ -105,10 +105,10 @@ Supported mathematical operators:
 * `%` - division remainder and percentage
 * `//` - integer division (drops fractional part of the result after division and converts the result into big integer)
 * `!` - factorial if added after a value or after a closing bracket, logical negation in other cases
-* `**` - raise to arbitrary  power
+* `**` and `^` - raise to an arbitrary power
 * `<<` and `>>` - left and right bitwise shift
 * `~` - bitwise NOT
-* `&`, `^` and `|` - bitwise AND, XOR, and OR
+* `&`, `@` and `|` - bitwise AND, XOR, and OR
 * `&&` and `||` - logical AND and NOT
 * `==`, `!=`, `>`, `<`, `>=`, and `<=` - comparison operators. Note: while operators like greater or less do not make sense for complex numbers, the calculator implements them for consistency. For complex numbers all operators compare separately real and imaginary parts (so, one complex number is greater than the other one only if its both real and imaginary parts are greater than corresponding parts of the other number)
 
@@ -118,11 +118,11 @@ Starting from the highest priority:
 
 1. `!`(factorial)
 2. `!`(logical NOT), `~`, `-`(unary minus), `+`(unary plus)
-3. `**`
+3. `**`, `^`
 4. `<<`, `>>`
 5. `*`, `/`, `//`, `%`(modulo operator)
 6. `+`, `-`, `%`(percentage operator)
-7. `&`, `^`
+7. `&`, `@`
 8. `|`
 9. `&&`
 10. `||`
@@ -143,7 +143,7 @@ Combinations of `%` with other operators:
 1. `a + b %` - increase the number `a` by `b` percents
 2. `a - b %` - decrease the number `a` by `b` percents
 3. `a * b %` - calculate `b` percent of `a` (short for `a * b / 100`)
-4. `a / b %` - calculate how many percents is `a` of `b` (short for `a / b * 100`)
+4. `a / b %` - calculate how many percent is `a` of `b` (short for `a / b * 100`)
 
 Note: in the first three cases `b` is always converted to a real number. In the last case, the result is always a real number.
 
@@ -158,7 +158,7 @@ Examples:
 
 ### Functions
 
-Function names are case insensitive.
+Function names are case-insensitive.
 
 * Trigonometric: `sin`, `cos`, `tan`
 * Inverse trigonometric: `asin`, `acos`, `atan`
@@ -175,7 +175,7 @@ Function names are case insensitive.
 * Inverse hyperbolic: `asinh`, `acosh`, `atanh`
 * Function for complex numbers: `norm`(modulus), `conj`(conjugate), `re`(real part of a complex), `im`(imaginary part of a complex)
 * Immediate if: `iif(condition;true_value;false_value)` returns `true_value` if the `condition` is true, and `false_value` otherwise
-* Least common multiple and greatest common divisor: `lcm` and `gcd`. Both function accept arbitrary number of arguments (starting from 2 arguments)
+* Least common multiple and greatest common divisor: `lcm` and `gcd`. Both functions accept arbitrary number of arguments (starting from 2 arguments)
 * Conversion between radians and degrees: `rad`(degrees to radians) and `deg`(degrees to radians)
 * N-th number of Fibonacci: `fibo`. At this moment the argument must be an integer number between 0 and 100000
 * Prime numbers: `is_prime` - returns `1` if a number is a prime one, `next_prime` returns the smallest prime number greater than the function argument. Note: the functions return error for non-integer numbers, and the algorithm is not very fast, so checking if a number is prime may take a lot of time if the number is rather big
@@ -188,7 +188,7 @@ Function names are case insensitive.
 
 ### Builtin Constants
 
-Constant names are case insensitive. All constants are 64-bit precision float numbers.
+Constant names are case-insensitive. All constants are 64-bit precision float numbers.
 
 1. `PI` - 3.141...
 2. `E` - natural logarithm base(Euler's constant) - 2.71828...
